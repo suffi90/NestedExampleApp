@@ -1,0 +1,11 @@
+<h1>New parent</h1>
+
+<%= form_for @parent do |f| %>
+  <%= f.text_field :name, placeholder: "Name of Parent" %>
+  <%= f.fields_for :children, @parent.children.build do |b| %>
+    <%= b.text_field :name, placeholder: "Child's Name" %>
+  <% end %>
+  <%= f.submit %>
+<% end %>
+
+<%= link_to 'Back', parents_path %>
